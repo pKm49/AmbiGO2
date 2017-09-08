@@ -74,10 +74,11 @@ public class SignUP extends AppCompatActivity {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_id_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id);
                             current_user_id_db.setValue(true);
-                            DatabaseReference current_user_name_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child("Name");
+                            DatabaseReference current_user_name_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id).child("Name");
                             current_user_name_db.setValue(name);
-                            DatabaseReference current_user_mob_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child("Phone_No");
+                            DatabaseReference current_user_mob_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Drivers").child(user_id).child("Phone_No");
                             current_user_mob_db.setValue(mobile);
+
                         }
                     }
                 });
